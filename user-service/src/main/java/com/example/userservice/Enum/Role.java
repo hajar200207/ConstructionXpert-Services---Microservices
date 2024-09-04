@@ -1,2 +1,13 @@
-package com.example.userservice.Enum;public class Role {
+package com.example.userservice.Enum;
+
+
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Role implements GrantedAuthority {
+    USER, ADMIN;
+
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }
