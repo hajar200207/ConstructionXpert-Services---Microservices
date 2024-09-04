@@ -23,7 +23,6 @@ public class TaskService {
     }
 
     public TaskDto createTask(TaskDto taskDto) {
-        // Vérifier si le projet existe
         ProjectDto project = projectClient.getProjectById(taskDto.getProjectId());
         if (project == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Projet non trouvé");
@@ -45,7 +44,6 @@ public class TaskService {
         if (!taskRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Tâche non trouvée");
         }
-        // Vérifier si le projet existe
         ProjectDto project = projectClient.getProjectById(taskDto.getProjectId());
         if (project == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Projet non trouvé");
